@@ -9,13 +9,56 @@ body {
     background-repeat: repeat;
 }
 
-.jumbotron {
-    font-family: 'Georgia', Times, 'Times New Roman', serif;
-    color: #ffffff; 
-    background-color: #4aaaa5;
-    margin-bottom: 0;
-    }
-
 .display-4 {
-    text-align: center;
+    padding: 30px; 
+    background-color: #4aaaa5;
+    font-family: 'Georgia', Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center; 
+}
+
+h2 {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 25px;
+    font-family: 'Georgia', Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color: #4aaaa5;
+    line-height: 85px;
+    border-bottom: 3px solid #cccccc;
+}
+
+#profilePic {
+    float: left;
+    margin-top: 0;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 5px;
+}
+
+#intro1 {
+    margin-left: 25px;
+    margin-right: 25px; 
+}
+
+#sticky-footer {
+    border-top: 8px solid #4aaaa5;
+}
+
+.thumbnail {
+    position: relative;
+    margin-left: 40px;
+}
+
+.caption {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    background-color: #4aaaa5;
+    font-family: 'Georgia', Times, 'Times New Roman', serif;
+    font-size: 20px;
+    color: #ffffff;
 }
