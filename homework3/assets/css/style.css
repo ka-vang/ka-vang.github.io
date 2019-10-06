@@ -46,7 +46,12 @@ h2 {
 textarea {
     border: dashed 3px #cccccc;
     text-align: center;
-    font-size: 12px;
+}
+
+::placeholder {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 125px;
 }
 
 #generate {

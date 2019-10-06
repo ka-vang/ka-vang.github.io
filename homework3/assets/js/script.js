@@ -49,5 +49,5 @@ generate.addEventListener('click', function () {
 copy.addEventListener('click', function () {
   document.getElementById("password").select();
   document.execCommand("copy");
-  alert('Password has been copied');
+  alert('Your password has been copied.');
 })
