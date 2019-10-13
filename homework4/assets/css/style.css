@@ -1,0 +1,98 @@
+body {
+  margin-right: 50px;
+  margin-left: 50px;
+  font-size: 20px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  background-color: white;
+}
+
+h1{
+  font-weight: stronger;
+  margin: 0px;
+  padding: 10px;
+  font-size: 30px;
+  background-color: black;
+  color: white;
+}
+
+#startButton {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#submit {
+  margin-top: 50px;
+}
+
+#next {
+  margin-top: 50px;
+}
+
+#checkScore {
+  margin-top: 50px;
+}
+
+#timePlaceholder {
+  font-weight: bolder;
+  text-align: center;
+  color: black;
+}
+
+#countdown {
+    text-align: center;
+    color: red;
+}
+
+.question{
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.answers {
+  margin-bottom: 20px;
+  text-align: left;
+  display: inline-block;
+}
+
+.answers label{
+  display: block;
+  margin-bottom: 10px;
+}
+
+button{
+  font-family: 'Work Sans', sans-serif;
+  font-size: 22px;
+  background-color: black;
+  color: white;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.slide{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.active-slide{
+  opacity: 1;
+  z-index: 2;
+}
+.quiz-container{
+  position: relative;
+  height: 200px;
+  margin-top: 40px; 
+  width: 960px;
+  text-align: center;
+  background-color: lightgray;
+  margin-left: 225px;
+}
