@@ -1,0 +1,39 @@
+header {
+    background-color: #f7c063;
+    border-bottom: 5px solid #f7b13f;}
+
+h1 {
+    color: white;
+    text-align: center;
+    min-height: 50px;
+}
+
+#tacosTequilaImg {
+    display: block;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    height: 100%;
+}
+
+#tacoBout {
+    position: relative;
+    bottom: 75px;
+    font-family: Georgia, serif;
+    font-size: 40px;
+    color: black;
+    text-align: center;
+}
+
+.footer {
+    border-top: 5px solid #f7b13f;
+    background-color: #f7c063;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+}
