@@ -38,21 +38,35 @@ document.querySelector("#searchBtn").addEventListener("click", () => {
 
 // --------------- LOCALSTORAGE SECTION -----------
 
-if(localStorage.getItem("citySearched")){                               // checks to see if there's anything in the array, cityArray
-    var cityArray = JSON.parse(localStorage.getItem("citySearched"));   // if there is, store the citySearched in the array
-    // generate buttons to put on screen
-    // var textarea = document.querySelector("#cityList");
-    // textarea.value = cityArray.join("\n");
-
-} else{                                                                 // if there isn't, create an array called cityArray and store the citySearched in there
+if (localStorage.getItem("citySearched")){
+    var cityArray = JSON.parse(localStorage.getItem("citySearched"));   
+}
+else {
     var cityArray = [];
 }
+
+function cityDisplay() {
+    if(localStorage.getItem("citySearched")){
+        document.querySelector("#cityList").innerHTML = "";
+        cityArray = JSON.parse(localStorage.getItem("citySearched"));
+        
+        for (let index = 0; index < cityArray.length; index++) {       
+            var entry = document.createElement('li');
+            var cityList = document.querySelector("#cityList");
+            entry.appendChild(document.createTextNode(cityArray[index]));
+            cityList.appendChild(entry);
+        }
+    }
+}
+
+cityDisplay();
 
 $("#searchBtn").click(function(){                                       // when the searchBtn is clicked,                                     
     var cityEntered = document.querySelector("#searchInput").value;     // when the automatically push the cityEntered (that was typed in the text)
     cityArray.push(cityEntered);                                        // into the cityArray. all new entries will "push" to the bottom of the array
     localStorage.setItem("citySearched", JSON.stringify(cityArray));    // this will stringify all the citySearched entries in the array
 
+    cityDisplay();
     searchWeather(cityEntered);                                         // run the searchWeather function when the searchBtn is clicked
 });
 
@@ -134,8 +148,6 @@ function initForecast5(resultsFromServer){
     // weatherIcon.src = 'http://openweathermap.org/img/wn/' + resultsFromServer.weather[0].icon + '.png';
     forecastTempElement5.innerHTML = " " + "Temp: " + Math.floor(resultsFromServer.list[5].main.temp) + "&#176";
     forecastHumidityElement5.innerHTML = " " + "Humidity: " + resultsFromServer.list[5].main.humidity + "%";
-
-    // forecastVisibility(); 
 }
 // WHEN YOU HIT THE SEARCH BUTTON, THE FORECAST WILL DISPLAY
 document.querySelector("#searchBtn").addEventListener("click", () => {
@@ -143,16 +155,7 @@ document.querySelector("#searchBtn").addEventListener("click", () => {
     if (searchWord)
         searchForecast(searchWord);
 })
-// FORECAST CARDS ARE INVISIBLE. THIS WILL MAKE THEM VISIBLE.
-// function forecastVisibility(){
-//     var forecastContainer = document.querySelector("#forestContainer");
-//     var forecastContainerHeight = forecastContainer.clientHeight;
-//     var forecastContainerWidth = forecastContainer.clientWidth;
 
-//     forecastContainer.style.left = `calc(50% - ${forecastContainerWidth/2})`;
-//     forecastContainer.style.top = `calc(50% - ${forecastContainerHeight/1.3})`;
-//     forecastContainer.style.visibility = "visible";
-// }
 // --------------- MOMENT() SECTION ---------------
 
 var forecastDate = document.querySelector("#date");
