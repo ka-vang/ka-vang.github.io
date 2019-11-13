@@ -1,1 +1,1 @@
-About me
+Hi! My name is Ka Vang and I'm an aspiring full stack developer. I love the fun, challenging, and creative process of developing something useful and beautiful from the ground up. Please follow my page to watch me grow as a developer!
