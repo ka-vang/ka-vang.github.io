@@ -1,0 +1,39 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Special Elite', cursive;   
+}
+
+.name {
+    margin: auto;
+    width: 60%;
+    line-height: 700px;
+    text-align: center;
+    font-size: 105px;
+}
+
+.location {
+    position: absolute;
+    margin-left: 39%;
+    /* margin: auto; */
+    top: 440px;
+    font-size: 25px;
+}
+
+#linkedin {
+    position: absolute;
+    margin-left: 42%;
+    top: 500px;
+}
+
+#github {
+    position: absolute;
+    margin-left: 47%;
+    top: 500px;
+}
+
+#email {
+    position: absolute;
+    margin-left: 52%;
+    top: 500px;
+}
