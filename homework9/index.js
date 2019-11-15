@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
+const axios = require("axios");
+const git = require('github-scraper');
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -17,30 +19,16 @@ function promptUser() {
       message: "Where are you from?"
     },
     {
-        type: "input",
-        name: "color",
-        message: "What is your favorite color?"
+      type: "input",
+      name: "color",
+      message: "What is your favorite color?"
       },
-    {
-      type: "input",
-      name: "hobby",
-      message: "What is your favorite hobby?"
-    },
-    {
-      type: "input",
-      name: "food",
-      message: "What is your favorite food?"
-    },
     {
       type: "input",
       name: "github",
       message: "Enter your GitHub Username"
     },
-    {
-      type: "input",
-      name: "linkedin",
-      message: "Enter your LinkedIn URL."
-    }
+
   ]);
 }
 
@@ -60,12 +48,9 @@ function generateHTML(answers) {
     <h1 class="display-4">Hi! My name is ${answers.name}</h1>
     <p class="lead">I am from ${answers.location}.</p>
     <p class="lead">My favorite color is ${answers.color}.</p>
-    <p class="lead">My favorite hobby is ${answers.hobby}.</p>
-    <p class="lead">My favorite food is ${answers.food}.</p>
     <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
     <ul class="list-group">
       <li class="list-group-item">My GitHub username is ${answers.github}</li>
-      <li class="list-group-item">LinkedIn: ${answers.linkedin}</li>
     </ul>
   </div>
 </div>

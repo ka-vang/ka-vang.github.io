@@ -1,14 +1,19 @@
 {
-  "name": "mini-project",
+  "name": "homework9",
   "version": "1.0.0",
-  "description": "",
+  "description": "colorful github profile",
   "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "fs": "^0.0.1-security",
+    "github-scraper": "^6.8.0",
+    "inquirer": "^7.0.0",
+    "util": "^0.12.1"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "inquirer": "^6.3.1"
-  }
+  "license": "ISC"
 }
