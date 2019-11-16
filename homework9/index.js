@@ -5,8 +5,8 @@ const open = require("open");
 const util = require("util");
 const pdf = require('html-pdf');
 const api = require("./api");
-const generateHTML = require("./generateHTML");
-// const electron = require("electron");
+const createHtml = require("./createHtml");
+// const electron = require("electron-pdf");
 
 const prompt = [
     {
@@ -38,7 +38,7 @@ function init() {
                         .then(stars => {
                             console.log(github)
                             console.log(response)
-                            return generateHTML({stars, color, response})
+                            return createHtml({stars, color, response})
                         }
         ))
         .then(async function (html) {
@@ -46,7 +46,9 @@ function init() {
             var readHtml = fs.readFileSync('index.html', 'utf8');
             // var paperSizeArray = ["A4", "A5"];
             var options = {
-                format: 'Letter',
+                height: "900mm",
+                width: "500mm",
+                format: 'Letter'
                 // landscape: false,
                 // marginsType: 0,
                 // printBackground: false,

@@ -18,7 +18,7 @@ function generateHTML(data) {
     <style>
     body {
         font-family: 'Merriweather', serif;
-        width: 100%
+        width: 100%;
     }
     
     .jumbotron {
@@ -28,7 +28,8 @@ function generateHTML(data) {
     .card {
         border-radius: 25px;
         background-color: grey;
-        width: 120%;
+        width: auto;
+        left: 100px;
         padding: 10px;
         box-shadow: 1px 1px 5px black;
     }
@@ -79,6 +80,7 @@ function generateHTML(data) {
     }
     
     .githubCard {
+        width: auto;
         border-radius: 25px;
         background-color: grey;
         color: white;
@@ -112,7 +114,7 @@ function generateHTML(data) {
         <div class="container container-fluid">
             <div class="row">
                 <div class="col-xs-1"></div>
-                <div class="col-md-10">
+                <div class="col-sm-10">
                     <div class="card" style="background-color: prompt.choices[]">
                         <img id="profileImage" src="${data.response.avatar_url}"/ height="200px" width="200px">
                         <h1>Hi.<br>My name is ${data.response.name}.</h1>   
@@ -131,7 +133,7 @@ function generateHTML(data) {
     <div class="container">
         <p id="bio">${data.response.bio ? `${data.response.bio}` : " "}</p>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <div class="githubCard">
                     Public Repositories
                     <p class="githubData">${data.response.public_repos}</p>
@@ -142,7 +144,7 @@ function generateHTML(data) {
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <div class="githubCard">
                     Followers
                     <p class="githubData">${data.response.followers}</p>

@@ -1,5 +1,6 @@
 body {
     font-family: 'Merriweather', serif;
+    width: 100%;
 }
 
 .jumbotron {
@@ -9,7 +10,8 @@ body {
 .card {
     border-radius: 25px;
     background-color: grey;
-    width: 120%;
+    width: auto;
+    left: 100px;
     padding: 10px;
     box-shadow: 1px 1px 5px black;
 }
@@ -60,6 +62,7 @@ h1 {
 }
 
 .githubCard {
+    width: auto;
     border-radius: 25px;
     background-color: grey;
     color: white;

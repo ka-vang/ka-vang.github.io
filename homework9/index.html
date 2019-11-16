@@ -16,7 +16,7 @@
     <style>
     body {
         font-family: 'Merriweather', serif;
-        width: 100%
+        width: 100%;
     }
     
     .jumbotron {
@@ -26,7 +26,8 @@
     .card {
         border-radius: 25px;
         background-color: grey;
-        width: 120%;
+        width: auto;
+        left: 100px;
         padding: 10px;
         box-shadow: 1px 1px 5px black;
     }
@@ -77,6 +78,7 @@
     }
     
     .githubCard {
+        width: auto;
         border-radius: 25px;
         background-color: grey;
         color: white;
@@ -110,7 +112,7 @@
         <div class="container container-fluid">
             <div class="row">
                 <div class="col-xs-1"></div>
-                <div class="col-md-10">
+                <div class="col-sm-10">
                     <div class="card" style="background-color: prompt.choices[]">
                         <img id="profileImage" src="https://avatars3.githubusercontent.com/u/53822959?v=4"/ height="200px" width="200px">
                         <h1>Hi.<br>My name is Ka Vang.</h1>   
@@ -129,7 +131,7 @@
     <div class="container">
         <p id="bio">Hi! I'm an aspiring full stack developer. I love the fun, challenging, and creative process of developing something useful and beautiful from the ground up.</p>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <div class="githubCard">
                     Public Repositories
                     <p class="githubData">4</p>
@@ -140,7 +142,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <div class="githubCard">
                     Followers
                     <p class="githubData">17</p>
