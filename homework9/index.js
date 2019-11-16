@@ -13,7 +13,7 @@ const prompt = [
       type: "list",
       name: "color",
       message: "What is your favorite color?",
-      choices: ["green", "blue", "pink", "red"]
+      choices: ["grey", "red", "blue", "pink", "green"]
     },
     {
       type: "input",
