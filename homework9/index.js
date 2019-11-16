@@ -46,8 +46,7 @@ function init() {
             var readHtml = fs.readFileSync('index.html', 'utf8');
             // var paperSizeArray = ["A4", "A5"];
             var options = {
-                // format: 'Letter',
-                
+                format: 'Letter',
                 // landscape: false,
                 // marginsType: 0,
                 // printBackground: false,
