@@ -1,17 +1,7 @@
-# Unit 09 Node.js and ES6+ Homework: Developer Profile Generator
+# Unit 10 OOP Homework: Template Engine - Employee Summary
 
-GitHub is an awesome tool but it can be a bit time consuming if all you're looking for is just quick data such as how many repositories they've made, where they're from, and so forth. Worry no more. This application will allow you to quickly pull up a profile on GitHub to include the following information in a simple layout:
+A great way to introduce a software engineering team is to create an application where team members' basic information are displayed in a simple format that's easy to read. Sometimes, you don't want to have to read through one's entire biography just to find out what their email address or GitHub usernames are. Instead, you just want to be able to do a quick search and be able to pull up that information. That's why this Node CLI application was created!
 
-    * Profile image
-    * Username
-    * Links to the following:
-    *   User location via Google Maps
-    *   User GitHub profile
-    *   User blog
-    *   User bio
-    * Number of public repositories
-    * Number of followers
-    * Number of GitHub stars
-    * Number of users following
+As a manager, this Node CLI application will take in information about employees and generate an HTML webpage that displays summaries for each person. This is a quick and easy way to easily show who's on the software engineering team, what their roles are, and how to get a hold of them. This application will allow an unlimited number of engineers and interns to be added so if you have a big team, there won't be any issues adding them all.
 
-As a bonus, a PDF will be generated as well so in case you're one who prefers hard copies, this is a perfect solution for you. The data pulled is up-to-date with every users' activitiy so you don't have to worry about not having current information on a user. Give this app a try and you'll see how easy it is to use!
+This is a simple command line application so it's also extremely user friendly. The application will prompt the you for information about the team manager and the team members. When you're done adding team members, choose "No additional team members" and the HTML will be automatically generated. Good luck and have fun putting your team together!

@@ -4,9 +4,9 @@ const fs = require("fs");
 function generateTeamMember() {
     return inquirer.prompt([{
             type: "list",
-            message: "Which type of team member would you like to add?",
+            message: "Who else would you like to add?",
             name: "teamMembers",
-            choices: ["Engineer", "Intern", "I don't want to add any additional team members."]
+            choices: ["Engineer", "Intern", "No additional team members."]
         }]).then(function (answer) {
         switch (answer.teamMembers) {
             case "Engineer": generateEngineer();
@@ -14,7 +14,7 @@ function generateTeamMember() {
             case "Intern": generateIntern();
                 break;
             default:
-                console.log("***** Your team is complete. Wrote to output/./index.html. *****");
+                console.log("Thank you for putting your team together! *** Wrote to output/./index.html. ***");
                 fs.appendFile("output/./index.html", "</div></div></body></html>", 
                 (err) => {
                     if (err) 
@@ -25,23 +25,23 @@ function generateTeamMember() {
 }
 
 function generateManager() {
-    console.log("***** Please build your team. *****");
+    console.log("Manager's Information");
     return inquirer.prompt([
         {
             type: "input",
-            message: "What is your manager's name?",
+            message: "Manager name:",
             name: "managerName"
         }, {
             type: "input",
-            message: "What is your manager's employee ID?",
+            message: "Manager employee ID:",
             name: "managerID"
         }, {
             type: "input",
-            message: "What is your manager's email address?",
+            message: "Manager email address:",
             name: "managerEmail"
         }, {
             type: "input",
-            message: "What is your manager's office number?",
+            message: "Manager office number:",
             name: "managerOffice"
         }
     ]).then(function ({managerName, managerID, managerEmail, managerOffice}) {
@@ -161,23 +161,23 @@ function generateManager() {
 }
 
 function generateEngineer() {
-    console.log("***** Please enter your engineer's information. *****")
+    console.log("Engineer's Information")
     return inquirer.prompt([
         {
             type: "input",
-            message: "What is your engineer's name?",
+            message: "Engineer name:",
             name: "engineerName"
         }, {
             type: "input",
-            message: "What is your engineer's employee ID?",
+            message: "Engineer employee ID:",
             name: "engineerID"
         }, {
             type: "input",
-            message: "What is your engineer's email address?",
+            message: "Engineer email address:",
             name: "engineerEmail"
         }, {
             type: "input",
-            message: "What is your engineer's GitHub username?",
+            message: "Engineer GitHub username:",
             name: "engineerGithub"
         }
     ]).then(function ({engineerName, engineerID, engineerEmail, engineerGithub}) {
@@ -204,23 +204,23 @@ function generateEngineer() {
 }
 
 function generateIntern() {
-    console.log("***** Please enter your intern's information. *****")
+    console.log("Intern's Information")
     return inquirer.prompt([
         {
             type: "input",
-            message: "What is your intern's name?",
+            message: "Intern name:",
             name: "internName"
         }, {
             type: "input",
-            message: "What is your intern's employee ID?",
+            message: "Intern employee ID:",
             name: "internID"
         }, {
             type: "input",
-            message: "What is your intern's email address?",
+            message: "Intern email address:",
             name: "internEmail"
         }, {
             type: "input",
-            message: "What is your intern's school?",
+            message: "Intern school:",
             name: "internSchool"
         }
     ]).then(function ({internName, internID, internEmail, internSchool}) {
