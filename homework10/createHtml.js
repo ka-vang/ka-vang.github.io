@@ -17,6 +17,7 @@ function createHTML(data) {
 
     <style>
     body {
+        background-color: #f1f1f1;
         font-family: 'Merriweather', serif;
         width: 100%;
     }
@@ -29,86 +30,12 @@ function createHTML(data) {
     }
     
     .card {
-        border-radius: 25px;
-        background-color: grey;
         width: auto;
-        left: 100px;
-        padding: 10px;
-        box-shadow: 1px 1px 5px black;
+        box-shadow: 5px 5px 5px gray;
     }
-    
-    #profileImage {
-        border-radius: 50%;
-        border: solid 5px yellow;
-        box-shadow: 1px 1px 5px black;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-    
-    h1 {
-        color: white;
+
+    .cardHeader {
         text-align: center;
-    }
-    
-    #bio {
-        text-align: center;
-        font-size: 24px;
-        padding: 20px;
-    }
-    
-    #contact {
-        text-align: center;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    #nav-link {
-        width: 140px;
-    }
-    
-    .contactMe {
-        color: white;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    
-    #github {
-        margin-right: 50px;
-        margin-left: 25px;
-    }
-    
-    .githubCard {
-        width: auto;
-        border-radius: 25px;
-        background-color: grey;
-        color: white;
-        text-align: center;
-        font-size: 30px;
-        font-weight: bolder;
-        margin-top: 10px;
-        margin-right: 10px;
-        margin-bottom: 50px;
-        margin-left: 10px;
-        padding: 25px;
-        box-shadow: 1px 1px 5px black;
-    }
-    
-    .githubData {
-        font-size: 25px;
-    }
-    
-    #pdf {
-        color: black;
-    }
-    
-    #footer {
-        height: 500px;
-        margin-bottom: 0;
     }
     </style>
     
@@ -118,34 +45,50 @@ function createHTML(data) {
             My Team
         </div>
     </div>
-
+    
     <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="githubCard">
-                    <p class="githubData">${data.response.name}</p>
-                    <p class="githubData">${createHTML.title}</p>
-                </div>
-                <div class="githubCard">
-                    GitHub Stars
-                    <p class="githubData">${data.response.stars ? `${data.response.stars}` : "None"}</p>
+        <div class="row" style="margin: 0 auto; margin-top: 50px;">
+            <div class="col-lg-4">
+                <div id="managerCard" class="card">
+                    <div class="cardHeader" style="background-color: #406ff1; color:white">
+                        Name: ${answers.managerName} <br>
+                        <i class=" fas fa-mug-hot "></i> Manager
+                    </div>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item ">ID: ${answers.managerId}</li>
+                        <li class="list-group-item ">Email: ${answers.managerEmail}</li>
+                        <li class="list-group-item ">Office Number: ${answers.managerOffice}</li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="col-sm-6">
-                <div class="githubCard">
-                    Followers
-                    <p class="githubData">${data.response.followers}</p>
+            <div class="col-lg-4">
+                <div id="engineerCard" class="card">
+                    <div class="cardHeader" style="background-color: #406ff1; color:white;">
+                        Name: ${answers.engineerName} <br>
+                        <i class="fas fa-glasses"></i> Engineer
+                    </div>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item ">ID: ${answers.engineerId}</li>
+                        <li class="list-group-item ">Email: ${answers.engineerEmail}</li>
+                        <li class="list-group-item ">Github: ${data.response.username}</li>
+                    </ul>
                 </div>
-                <div class="githubCard">
-                    Following
-                    <p class="githubData">${data.response.following}</p>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="cardHeader" style="background-color: #406ff1; color:white;">
+                        Name: ${answers.internName} <br>
+                        <i class="fas fa-user-graduate"></i> Intern
+                    </div>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item ">ID: ${answers.internId}</li>
+                        <li class="list-group-item ">Email: ${answers.internEmail}</li>
+                        <li class="list-group-item ">School: ${answers.internSchool}</li>
+                    </ul>
                 </div>
-            </div>    
+            </div>
         </div>
     </div>
-
-    <div class="jumbotron jumbotron-fluid" id="footer"></div>
                         
     </body>    
     </html>`;
