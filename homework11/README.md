@@ -17,6 +17,6 @@ For users that need to keep track of a lot of information, it's easy to forget o
 
 You are required to submit the following:
 
-* The URL of the deployed application: 
+* The URL of the deployed application: https://homework11-notetaker.herokuapp.com/notes
 
 * The URL of the GitHub repository: https://github.com/ka-vang/ka-vang.github.io/tree/master/homework11
