@@ -1,0 +1,16 @@
+{
+  "name": "employeemanager_cms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ka Vang",
+  "license": "ISC",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^7.0.0",
+    "mysql": "^2.17.1"
+  }
+}

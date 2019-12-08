@@ -1,9 +1,7 @@
 // Dependencies
-var express = require("express");
 var mysql = require("mysql");
-
-// Create instance of express app.
-var app = express();
+var inquirer = require("inquirer");
+var console_table = require("console.table");
 
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8080;
@@ -14,18 +12,145 @@ var connection = mysql.createConnection({
   port: 3306,
   user: "root",
   password: "faster123",
-  database: "employeetracker_db"
+  database: "employeemanager_db"
 });
 
 // Initiate MySQL Connection.
 connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected as id " + connection.threadId);
-});
+    if (err) throw err;
+    console.log("The Employee Manager");
+    runSearch();
+  });  
 
-app.listen(PORT, function() {
-    console.log("Server listening on: http://localhost:" + PORT);
-  });
+function runSearch() {
+    inquirer.prompt({
+        name: "action",
+        type: "list",
+        message: "What would you like to do?",
+        choices: [
+            "View All Employees",
+            "View All Employees By Department",
+            "View All Employess By Manager",
+            "Add Employee",
+            "Remove Employee",
+            "Update Employee Role",
+            "Update Employee Manager"
+        ]
+    }).then(function (answer) {
+        switch (answer.action) {
+            case "View All Employees":
+                viewAll();
+                break;
+
+            case "View All Employees By Department":
+                viewDepartment();
+                break;
+
+            case "View All Employees By Manager":
+                viewManager();
+                break;
+
+            case "Add Employee":
+                addEmployee();
+                break;
+
+            case "Remove Employee":
+                removeEmployee();
+                break;
+
+            case "Update Employee Role":
+                updateRole();
+                break;
+
+            case "Update Employee Manager":
+                updateManager();
+                break;
+
+            default: connection.end();
+        }
+    })
+}
+
+function viewAll() {
+    connection.query("SELECT * FROM employee", function(err, res) {
+        if (err) throw err;
+        console.table(res);
+        runSearch();
+    });
+}
+
+function viewDepartment() {
+    // if (err) throw err;
+    inquirer.prompt([
+        {
+            type: "list",
+            message: "Which department would you like to view?",
+            name: "department",
+            choices: ["Sales", "Engineering", "Finance","Legal"]
+        }
+    ]).then(function (answer) {
+        var query = "SELECT department.departmentid, roles.departmentid, employee.roleid";
+        query += "FROM department INNER JOIN roles ON (department.departmentid = roles.departmentid ";
+        query += "FROM roles INNER JOIN employee ON (roles.roleid = employee.roleid ";
+
+        // var query = "SELECT employeeid, first_name, last_name, roleid, managerid FROM employee";        
+        connection.query(query, [answer.artist, answer.artist], function(err, res) {
+            // if (err) throw err;
+            for (var i = 0; i < res.length; i++) {
+                console.log(
+                    i+1 + ".) " +
+                        "First Name: " + res[i].first_name +
+                        "Last Name: " + res[i].last_name +
+                        "Department ID: " + res[i].departmentid +
+                        "Department: " + res[i].department
+                );
+            }
+            runSearch();
+        });
+    });
+}
+
+function viewManager() {
+    connection.query("SELECT * FROM managerid", function(err, res) {
+        //where manager id = employee id, give me the name.
+        //do a bunch of left joins on the primary / foreign keys to link tables.
+        if (err) throw err;
+        console.table(res);
+    });
+}
+
+function addEmployee() {
+    connection.query("SELECT * FROM managerid", function(err, res) {
+        //where manager id = employee id, give me the name.
+        //do a bunch of left joins on the primary / foreign keys to link tables.
+        if (err) throw err;
+        console.table(res);
+    });
+}
+
+function removeEmployee() {
+    connection.query("SELECT * FROM managerid", function(err, res) {
+        //where manager id = employee id, give me the name.
+        //do a bunch of left joins on the primary / foreign keys to link tables.
+        if (err) throw err;
+        console.table(res);
+    });
+}
+
+function updateRole() {
+    connection.query("SELECT * FROM managerid", function(err, res) {
+        //where manager id = employee id, give me the name.
+        //do a bunch of left joins on the primary / foreign keys to link tables.
+        if (err) throw err;
+        console.table(res);
+    });
+}
+
+function updateManager() {
+    connection.query("SELECT * FROM managerid", function(err, res) {
+        //where manager id = employee id, give me the name.
+        //do a bunch of left joins on the primary / foreign keys to link tables.
+        if (err) throw err;
+        console.table(res);
+    });
+}
