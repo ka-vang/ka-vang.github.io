@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "",
+  password: "faster123",
   database: "employeemanager_db"
 });
 
@@ -94,8 +94,8 @@ function viewDepartment() {
         query += "FROM roles INNER JOIN employee ON (roles.roleid = employee.roleid ";
 
         // var query = "SELECT employeeid, first_name, last_name, roleid, managerid FROM employee";        
-        connection.query(query, [answer.artist, answer.artist], function(err, res) {
-            // if (err) throw err;
+        connection.query(query, [answer.department, answer.department], function(err, res) {
+            if (err) throw err;
             for (var i = 0; i < res.length; i++) {
                 console.log(
                     i+1 + ".) " +
@@ -112,45 +112,40 @@ function viewDepartment() {
 
 function viewManager() {
     connection.query("SELECT * FROM managerid", function(err, res) {
-        //where manager id = employee id, give me the name.
-        //do a bunch of left joins on the primary / foreign keys to link tables.
         if (err) throw err;
         console.table(res);
+        runSearch();
     });
 }
 
 function addEmployee() {
     connection.query("SELECT * FROM managerid", function(err, res) {
-        //where manager id = employee id, give me the name.
-        //do a bunch of left joins on the primary / foreign keys to link tables.
         if (err) throw err;
         console.table(res);
+        runSearch();
     });
 }
 
 function removeEmployee() {
     connection.query("SELECT * FROM managerid", function(err, res) {
-        //where manager id = employee id, give me the name.
-        //do a bunch of left joins on the primary / foreign keys to link tables.
         if (err) throw err;
         console.table(res);
+        runSearch();
     });
 }
 
 function updateRole() {
     connection.query("SELECT * FROM managerid", function(err, res) {
-        //where manager id = employee id, give me the name.
-        //do a bunch of left joins on the primary / foreign keys to link tables.
         if (err) throw err;
         console.table(res);
+        runSearch();
     });
 }
 
 function updateManager() {
     connection.query("SELECT * FROM managerid", function(err, res) {
-        //where manager id = employee id, give me the name.
-        //do a bunch of left joins on the primary / foreign keys to link tables.
         if (err) throw err;
         console.table(res);
+        runSearch();
     });
 }
