@@ -88,16 +88,14 @@ function viewDepartment() {
             choices: ["Sales", "Engineering", "Finance","Legal"]
         }
     ]).then(function (answer) {
-        if (answer.department === "Sales" || "Engineering" || "Finance" || "Legal") {
-            connection.query("SELECT employee.first_name, employee.last_name, roles.title, department.department_name FROM employee INNER JOIN roles ON employee.roleid = roles.id INNER JOIN department ON department.id = roles.departmentid WHERE department.department_name = ?", [answer.departmentSelection], function (err, res) {
-                if (err) throw err;           
-                console.table(res);
-                runSearch();
-            });
-         }
-    });
+        connection.query("SELECT employee.first_name, employee.last_name, roles.title, department.department_name FROM employee INNER JOIN roles ON employee.roleid = roles.id INNER JOIN department ON department.id = roles.departmentid WHERE department.department_name = ?", [answer.departmentSelection], function (err, res) {
+            if (err) throw err;           
+            console.table(res);
+            runSearch();
+        });       
+    });           
 }
-
+        
 function viewManager() {
     connection.query("SELECT * FROM managerid", function(err, res) {
         if (err) throw err;
