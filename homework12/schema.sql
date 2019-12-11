@@ -4,28 +4,24 @@ CREATE database employeemanager_db;
 USE employeemanager_db;
 
 CREATE TABLE department (
-	departmentid INT NOT NULL,
-	department VARCHAR(30) NULL,
-    PRIMARY KEY (departmentid)
-    );
+	id INT AUTO_INCREMENT NOT NULL,
+	department_name VARCHAR(30) NULL,
+    PRIMARY KEY(id)
+);
     
 CREATE TABLE roles (
-	roleid INT NOT NULL,
+	id INT AUTO_INCREMENT NOT NULL,
     title VARCHAR(30) NULL,
     salary DECIMAL(10,2) NULL,
     departmentid INT NULL,
-    PRIMARY KEY(roleid)
-    );
+    PRIMARY KEY(id)
+);
     
 CREATE TABLE employee (
-	employeeid INT NOT NULL,
+	id INT AUTO_INCREMENT NOT NULL,
     first_name VARCHAR(30) NULL,
     last_name VARCHAR(30) NULL,
     roleid INT NULL,
     managerid INT NULL,
-    PRIMARY KEY(employeeid)
-    );
-    
-    SELECT * FROM department;
-    SELECT * FROM roles;
-    SELECT * FROM employee;
+    PRIMARY KEY(id)
+);

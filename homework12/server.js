@@ -72,7 +72,7 @@ function runSearch() {
 }
 
 function viewAll() {
-    connection.query("SELECT * FROM employee", function(err, res) {
+    connection.query("SELECT employee.first_name, employee.last_name, employee.roleid, roles.title, roles.departmentid, department.department_name, employee.managerid FROM employee INNER JOIN roles ON employee.roleid = roles.id INNER JOIN department ON department.id = roles.departmentid", function(err, res) {
         if (err) throw err;
         console.table(res);
         runSearch();
@@ -80,33 +80,21 @@ function viewAll() {
 }
 
 function viewDepartment() {
-    // if (err) throw err;
     inquirer.prompt([
         {
             type: "list",
             message: "Which department would you like to view?",
-            name: "department",
+            name: "departmentSelection",
             choices: ["Sales", "Engineering", "Finance","Legal"]
         }
     ]).then(function (answer) {
-        var query = "SELECT department.departmentid, roles.departmentid, employee.roleid";
-        query += "FROM department INNER JOIN roles ON (department.departmentid = roles.departmentid ";
-        query += "FROM roles INNER JOIN employee ON (roles.roleid = employee.roleid ";
-
-        // var query = "SELECT employeeid, first_name, last_name, roleid, managerid FROM employee";        
-        connection.query(query, [answer.department, answer.department], function(err, res) {
-            if (err) throw err;
-            for (var i = 0; i < res.length; i++) {
-                console.log(
-                    i+1 + ".) " +
-                        "First Name: " + res[i].first_name +
-                        "Last Name: " + res[i].last_name +
-                        "Department ID: " + res[i].departmentid +
-                        "Department: " + res[i].department
-                );
-            }
-            runSearch();
-        });
+        if (answer.department === "Sales" || "Engineering" || "Finance" || "Legal") {
+            connection.query("SELECT employee.first_name, employee.last_name, roles.title, department.department_name FROM employee INNER JOIN roles ON employee.roleid = roles.id INNER JOIN department ON department.id = roles.departmentid WHERE department.department_name = ?", [answer.departmentSelection], function (err, res) {
+                if (err) throw err;           
+                console.table(res);
+                runSearch();
+            });
+         }
     });
 }
 
@@ -119,23 +107,155 @@ function viewManager() {
 }
 
 function addEmployee() {
-    connection.query("SELECT * FROM managerid", function(err, res) {
-        if (err) throw err;
-        console.table(res);
-        runSearch();
+    inquirer.prompt([
+        {
+            name: "firstName",
+            type: "input",
+            message: "What is the employee's first name?"
+        }, {
+            name: "lastName",
+            type: "input",
+            message: "What is the employee's last name?"
+        }, {
+            name: "role",
+            type: "list",
+            message: "What is the employee's title?",
+            choices: [
+                "Sales Lead",
+                "Salesperson",
+                "Lead Engineer",
+                "Software Engineer",
+                "Accountant",
+                "Legal Team Lead",
+                "Lawyer"
+            ]
+        }, {
+            name: "manager",
+            type: "list",
+            message: "Who is the manager?",
+            choices: ["Kim Kicker", "Larry Lava", "Mary Microwave", "NA"]
+        }
+    ])
+    .then(function (answer){
+        var role_id;
+        if (answer.role === "Sales Lead"){
+            role_id = 1;
+        }
+        else if (answer.role === "Salesperson"){
+            role_id = 2;
+        }
+        else if (answer.role === "Lead Engineer"){
+            role_id = 3;
+        }
+        else if (answer.role === "Software Engineer"){
+            role_id = 4;
+        }
+        else if (answer.role === "Accountant"){
+            role_id = 5;
+        }
+        else if (answer.role === "Legal Team Lead"){
+            role_id = 6;
+        }
+        else if (answer.role === "Lawyer"){
+            role_id = 7;
+        }
+
+        var manager_id;
+        if (answer.manager === "Kim Kicker"){
+          manager_id = 1;
+        }
+        else if (answer.manager === "Larry Lava"){
+          manager_id = 2;
+        }
+        else if (answer.manager === "Mary Microwave"){
+            manager_id = 3;
+        }
+        else if (answer.manager === "NA"){
+          manager_id = null;
+        }
+        
+        connection.query("INSERT INTO employee SET ?",
+        {
+          first_name: answer.firstName,
+          last_name: answer.lastName,
+          roleid: role_id,
+          managerid: manager_id
+        },
+
+        function (err, result){
+          if (err) throw err;
+          console.log("***** YOU JUST ADDED NEW EMPLOYEE *****");
+          runSearch();
+        });
     });
 }
 
 function removeEmployee() {
-    connection.query("SELECT * FROM managerid", function(err, res) {
-        if (err) throw err;
-        console.table(res);
-        runSearch();
+    inquirer.prompt([
+        {
+            name: "deleteEmployee",
+            type: "input",
+            message: "Type the employee ID of the employee you want to delete: "
+        }
+    ]).then(function(answer){
+
+        var employee_id;
+        if (answer.deleteEmployee === "1"){
+            employee_id = 1;
+        }
+        else if (answer.deleteEmployee === "2"){
+            employee_id = 2;
+        }
+        else if (answer.deleteEmployee === "3"){
+            employee_id = 3;
+        }
+        else if (answer.deleteEmployee === "4"){
+            employee_id = 4;
+        }
+        else if (answer.deleteEmployee === "5"){
+            employee_id = 5;
+        }
+        else if (answer.deleteEmployee === "6"){
+            employee_id = 6;
+        }
+        else if (answer.deleteEmployee === "7"){
+            employee_id = 7;
+        }
+        else if (answer.deleteEmployee === "8"){
+            employee_id = 8;
+        }
+        else if (answer.deleteEmployee === "9"){
+            employee_id = 9;
+        }
+        else if (answer.deleteEmployee === "10"){
+            employee_id = 10;
+        }
+        else if (answer.deleteEmployee === "16"){
+            employee_id = 16;
+        }
+        else if (answer.deleteEmployee === "17"){
+            employee_id = 17;
+        }
+        else if (answer.deleteEmployee === "18"){
+            employee_id = 18;
+        }
+        else if (answer.deleteEmployee === "19"){
+            employee_id = 19;
+        }
+        else if (answer.deleteEmployee === "20"){
+            employee_id = 20;
+        }
+
+        connection.query("DELETE FROM employee WHERE ?", {id: employee_id}, function (err, res) {
+            if (err) throw err;
+            console.table(res);
+            runSearch();
+        });
     });
 }
 
 function updateRole() {
-    connection.query("SELECT * FROM managerid", function(err, res) {
+    connection.query("SELECT", function(err, res) {
         if (err) throw err;
         console.table(res);
         runSearch();
@@ -143,7 +263,7 @@ function updateRole() {
 }
 
 function updateManager() {
-    connection.query("SELECT * FROM managerid", function(err, res) {
+    connection.query("SELECT", function(err, res) {
         if (err) throw err;
         console.table(res);
         runSearch();
