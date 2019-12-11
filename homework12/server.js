@@ -72,7 +72,7 @@ function runSearch() {
 }
 
 function viewAll() {
-    connection.query("SELECT employee.first_name, employee.last_name, employee.roleid, roles.title, roles.departmentid, department.department_name, employee.managerid FROM employee INNER JOIN roles ON employee.roleid = roles.id INNER JOIN department ON department.id = roles.departmentid", function(err, res) {
+    connection.query("SELECT employee.employeeid, employee.first_name, employee.last_name, employee.roleid, roles.title, roles.departmentid, department.department_name, employee.managerid FROM employee INNER JOIN roles ON employee.roleid = roles.id INNER JOIN department ON department.id = roles.departmentid", function(err, res) {
         if (err) throw err;
         console.table(res);
         runSearch();
@@ -228,6 +228,21 @@ function removeEmployee() {
         else if (answer.deleteEmployee === "10"){
             employee_id = 10;
         }
+        else if (answer.deleteEmployee === "11"){
+            employee_id = 11;
+        }
+        else if (answer.deleteEmployee === "12"){
+            employee_id = 12;
+        }
+        else if (answer.deleteEmployee === "13"){
+            employee_id = 13;
+        }
+        else if (answer.deleteEmployee === "14"){
+            employee_id = 14;
+        }
+        else if (answer.deleteEmployee === "15"){
+            employee_id = 15;
+        }
         else if (answer.deleteEmployee === "16"){
             employee_id = 16;
         }
@@ -244,19 +259,77 @@ function removeEmployee() {
             employee_id = 20;
         }
 
-        connection.query("DELETE FROM employee WHERE ?", {id: employee_id}, function (err, res) {
+        connection.query("DELETE FROM employee WHERE ?", {employeeid: employee_id}, function (err, res) {
             if (err) throw err;
             console.table(res);
+            console.log("***** YOU JUST DELETED AN EMPLOYEE *****");
             runSearch();
         });
     });
 }
 
 function updateRole() {
-    connection.query("SELECT", function(err, res) {
+    connection.query("SELECT first_name, last_name FROM employee", function(err, result)
+    {
         if (err) throw err;
-        console.table(res);
-        runSearch();
+    
+    var choiceArray = [];
+    
+        for (var i = 0; i < result.length; i++) {
+            var choices = result[i].first_name + " " + result[i].last_name;
+            choiceArray.push(choices);
+        }
+    
+    inquirer.prompt([
+        {
+            name: "employees",
+            type: "list",
+            message: "Whose role would you like to update?",
+            choices: choiceArray
+        },{
+            name: "newRole",
+            type: "list",
+            message: "What is the new role?",
+            choices: [
+                "Sales Lead",
+                "Salesperson",
+                "Lead Engineer",
+                "Sofware Engineer",
+                "Accountant",
+                "Legal Team Lead",
+                "Lawyer"
+            ]
+        }]).then(function(answer){
+            var role_id;
+
+            if (answer.newRole === "Sales Lead"){
+                role_id = 1;
+            }
+            else if (answer.newRole === "Salesperson") {
+                role_id = 2;
+            }
+            else if (answer.newRole === "Lead Engineer") {
+                role_id = 3;
+            }
+            else if (answer.newRole === "Software Engineer") {
+                role_id = 4;
+            }
+            else if (answer.newRole === "Accountant") {
+                role_id = 5;
+            }
+            else if (answer.newRole === "Legal Team Lead") {
+                role_id = 6;
+            }
+            else if (answer.newRole === "Lawyer") {
+                role_id = 7;
+            }
+            connection.query("UPDATE roles INNER JOIN employee ON employee.roleid = roles.id SET roles.title = ? WHERE ?", [answer.newRole, {id: role_id}], function (err, res)
+            {
+                if (err) throw err;
+                console.log("***** EMPLOYEE ROLE UPDATED *****")
+                runSearch();
+            });
+        })
     });
 }
 
