@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "faster123",
+  password: "",
   database: "employeemanager_db"
 });
 
@@ -305,25 +305,25 @@ function updateRole() {
             if (answer.newRole === "Sales Lead"){
                 role_id = 1;
             }
-            else if (answer.newRole === "Salesperson") {
+            else if (answer.newRole === "Salesperson"){
                 role_id = 2;
             }
-            else if (answer.newRole === "Lead Engineer") {
+            else if (answer.newRole === "Lead Engineer"){
                 role_id = 3;
             }
-            else if (answer.newRole === "Software Engineer") {
+            else if (answer.newRole === "Software Engineer"){
                 role_id = 4;
             }
-            else if (answer.newRole === "Accountant") {
+            else if (answer.newRole === "Accountant"){
                 role_id = 5;
             }
-            else if (answer.newRole === "Legal Team Lead") {
+            else if (answer.newRole === "Legal Team Lead"){
                 role_id = 6;
             }
-            else if (answer.newRole === "Lawyer") {
+            else if (answer.newRole === "Lawyer"){
                 role_id = 7;
             }
-            connection.query("UPDATE roles INNER JOIN employee ON employee.roleid = roles.id SET roles.title = ? WHERE ?", [answer.newRole, {id: role_id}], function (err, res)
+            connection.query("UPDATE roles INNER JOIN employee ON employee.roleid = roles.id SET roles.title = ? WHERE ?", [answer.newRole, {employeeid: role_id}], function (err, res)
             {
                 if (err) throw err;
                 console.log("***** EMPLOYEE ROLE UPDATED *****")
