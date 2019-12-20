@@ -1,0 +1,47 @@
+body {
+  background-color: black;
+}
+
+body::after {
+  background: url("../img/background.png");
+  content: "";
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;   
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: #e49322;
+  color: #ffffff;
+  margin-top: 3%;
+}
+
+h1 {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.panel-heading {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
+}
+
+#newburger {
+  color: #5c5c5c;
+}
+
+#leftside {
+  background-color: #e49322;
+  color: white;
+  text-align: center;
+}
+
+#rightside {
+  background-color: #e49322;
+  color: white;
+  text-align: center;
+}
