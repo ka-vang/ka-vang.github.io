@@ -4,4 +4,4 @@ Hello! My name is Ka Vang and I am a Full Stack Developer located in Minneapolis
 
 <img src="images/screenshot.png">
 
-Check it out my portfolio <a href="https://ka-vang.github.io/homework15">here</a>!
+Check out my portfolio <a href="https://ka-vang.github.io/homework15">here</a>!
