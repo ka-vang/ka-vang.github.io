@@ -19,3 +19,9 @@ The user is able to:
   * Add new exercises to a new workout plan.
 
   * View multiple the combined weight of multiple exercises on the `stats` page.
+
+<img src="public/assets/images/workout1.png">
+<img src="public/assets/images/workout2.png">
+<img src="public/assets/images/workout3.png">
+
+Give the app a try <a href="https://homework16-fitnesstracker.herokuapp.com/">here</a>!
