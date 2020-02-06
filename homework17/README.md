@@ -32,6 +32,6 @@ If a user is on the Fitness Tracker app without an internet connection and input
 
 - See the links below to view the deployed application on Heroku and GitHub!
 
-  - Heroku: <a href = "">
+  - <a href = "https://mighty-anchorage-12572.herokuapp.com/">Heroku</a>
 
   - <a href = "ka-vang.github.io/tree/master/homework17">GitHub</a>
