@@ -46,6 +46,16 @@
     <script src="/workout.js"></script>
     <script src="/index.js"></script>
     <!-- <script src="/routes.js"></script> -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker
+                    .register("./service-worker.js")
+                    .then(reg => console.log("Service Worker: Registered"))
+                    .catch(err => console.log(`Service Worker: Error: ${err}`));
+            });
+        }
+    </script>
 </body>
 
 </html>
