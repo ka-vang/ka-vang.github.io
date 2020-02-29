@@ -25,10 +25,10 @@ The user should be able to:
 ## Submission on BCS
 
 # Repo Details 
-https://github.com/ka-vang/homework18
+https://github.com/ka-vang/ka-vang.github.io/tree/master/homework18
 
 # Server Deployed
-https://
+https://peaceful-brattain-c11909.netlify.com/
 
 
 
