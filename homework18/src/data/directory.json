@@ -1,0 +1,82 @@
+[
+	{
+		"id": 1,
+        "first": "Sarai",
+        "last": "Zack",
+        "position": "Computer Scientist",
+        "email": "Sarai.Zack@blahblah.com",
+        "cell": "(612) 235-9070"
+	},
+	{
+		"id": 2,
+        "first": "Augustina",
+        "last": "Pennell",
+        "position": "Web Designer",
+        "email": "Augustina.Pennell@blahblah.com",
+        "cell": "(763) 833-0826"
+	},
+    {
+		"id": 3,
+        "first": "Rosalva",
+        "last": "Sunseri",
+        "position": "Software Developer",
+        "email": "Rosalva.Sunseri@blahblah.com",
+        "cell": "(651) 423-1249"
+	},
+	{
+		"id": 4,
+        "first": "Uaeko",
+        "last": "Weide",
+        "position": "UX Designer & UI Developer",
+        "email": "Uaeko.Weide@blahblah.com",
+        "cell": "(612) 998-1239"
+	},
+    {
+		"id": 5,
+        "first": "Tresa",
+        "last": "Gearhart",
+        "position": "Operations Manager",
+        "email": "Tresa.Gearhart@blahblah.com",
+        "cell": "(952) 532-4268"
+	},
+    {
+		"id": 6,
+        "first": "Kala",
+        "last": "Finck",
+        "position": "SQL Developer",
+        "email": "Kala.Finck@blahblah.com",
+        "cell": "(952) 358-6785"
+	},
+    {
+		"id": 7,
+        "first": "Loma",
+        "last": "Westby",
+        "position": "Software Engineer",
+        "email": "Loma.Westby@blahblah.com",
+        "cell": "(651) 250-0643"
+	},
+    {
+		"id": 8,
+        "first": "Roseanna",
+        "last": "Carvalho",
+        "position": "Network Administrator",
+        "email": "Roseanna.Carvalho@blahblah.com",
+        "cell": "(763) 246-4204"
+	},
+    {
+		"id": 9,
+        "first": "Kirk",
+        "last": "Cornforth",
+        "position": "Information Security Analyst",
+        "email": "Kirk.Cornforth@blahblah.com",
+        "cell": "(612) 995-8000"
+	},
+    {
+		"id": 10,
+        "first": "Shia",
+        "last": "Vue",
+        "position": "Chief Information Officer (CIO)",
+        "email": "Shia.Vue@blahblah.com",
+        "cell": "(763) 439-0003"
+	}
+]
